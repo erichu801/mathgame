@@ -1,1 +1,1 @@
-a00984829.azurewebsites.net
+http://a00984829.azurewebsites.net

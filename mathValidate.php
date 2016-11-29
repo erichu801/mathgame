@@ -7,14 +7,21 @@
     $correct = 0;
     $total = 0;
 
-    if ($input == $answer) {        
-        $correct++;
-        header("Location: game.php");
-    } else {      
-        header("Location: game.php");
-    }
-    $total++;
+    if ($_POST["submit"]) {
+        unset($_SESSION["cMsg"]);
+        unset($_SESSION["wMsg"]);
+        
 
-    $_GET["correct"] = $correct;
-    $_GET["total"] = $total; 
+        if ($input == $answer) {        
+            $_SESSION["correct"] = $_SESSION["correct"] + 1;
+            $_SESSION["total"] = $_SESSION["total"] + 1;
+            $_SESSION["cMsg"] = "Correct";
+            header("Location: index.php");
+        } else {      
+            $_SESSION["total"] = $_SESSION["total"] + 1;
+            $_SESSION["wMsg"] = "Incorrect";
+            header("Location: index.php");
+        }
+    }
+    
 ?>
